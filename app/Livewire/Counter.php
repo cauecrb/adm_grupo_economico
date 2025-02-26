@@ -4,6 +4,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
 class Counter extends Component
 {
