@@ -8,5 +8,7 @@ Route::get('/', function () {
 });
 Route::get('/counter', \App\Livewire\Counter::class);
 Route::get('/adm-grupos', \App\Livewire\AdmGrupos::class);
-//Route::get('/bandeiras', \App\Livewire\Bandeiras::class);
+Route::get('/adm-bandeiras', \App\Livewire\AdmBandeiras::class);
+Route::get('/adm-unidades', \App\Livewire\AdmUnidades::class);
+Route::get('/adm-colaboradores', \App\Livewire\Colaboradores::class);
 
