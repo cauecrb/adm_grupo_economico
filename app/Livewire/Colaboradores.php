@@ -17,7 +17,7 @@ class Colaboradores extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->colaboradores = Colaboradores::all();
+        $this->colaboradores = Colaborador::all();
     }
 
     public function adicionarColaborador()
@@ -46,6 +46,6 @@ class Colaboradores extends Component
 
     public function render()
     {
-        return view('livewire.colaboradores');
+        return view('livewire.colaboradores', ['colaboradores' => $this->colaboradores]);
     }
 }

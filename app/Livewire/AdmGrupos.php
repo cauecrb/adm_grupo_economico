@@ -13,8 +13,8 @@ class AdmGrupos extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->grupos = AdmGrupos::all();
-        //dd($this->grupos);
+        $this->grupos = AdmGrupo::all();
+        //dd($this)->grupos;
     }
 
     public function adicionarGrupo()
@@ -32,11 +32,12 @@ class AdmGrupos extends Component
 
         // Atualizar lista de grupos
         $this->grupos[] = $grupo->toArray();
-        $this->nome = '';
+        //$this->nome = '';
     }
-
+    
     public function render()
     {
+        
         return view('livewire.adm-grupos');
     }
 }

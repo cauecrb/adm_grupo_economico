@@ -14,8 +14,7 @@ class AdmBandeiras extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->bandeiras = AdmBandeiras::all();
-        //dd($this->grupos);
+        $this->bandeiras = AdmBandeira::all();
     }
 
     public function adicionarBandeira()
@@ -42,6 +41,6 @@ class AdmBandeiras extends Component
 
     public function render()
     {
-        return view('livewire.adm-bandeiras');
+        return view('livewire.adm-bandeiras', ['bandeiras' => $this->bandeiras]);
     }
 }

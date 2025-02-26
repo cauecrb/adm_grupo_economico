@@ -18,7 +18,7 @@ class AdmUnidades extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->unidades = AdmUnidades::all();
+        $this->unidades = AdmUnidade::all();
     }
 
     public function adicionarUnidade()
@@ -47,6 +47,6 @@ class AdmUnidades extends Component
 
     public function render()
     {
-        return view('livewire.adm-unidades');
+        return view('livewire.adm-unidades', ['unidades' => $this->unidades]);
     }
 }
