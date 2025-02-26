@@ -1,10 +1,9 @@
 <?php
 
-//namespace App\Http\Livewire;
 namespace App\Livewire;
 
-
 use Livewire\Component;
+use App\Models\AdmGrupo;
 
 class AdmGrupos extends Component
 {
@@ -13,23 +12,26 @@ class AdmGrupos extends Component
 
     public function mount()
     {
-        // Inicializar dados (isto seria substituído por dados reais do banco)
-        $this->grupos = [
-            ['id' => 1, 'nome' => 'Grupo 1', 'descricao' => 'Descrição do Grupo 1'],
-            ['id' => 2, 'nome' => 'Grupo 2', 'descricao' => 'Descrição do Grupo 2'],
-        ];
+        // pegar os dados do banco
+        $this->grupos = AdmGrupos::all();
+        //dd($this->grupos);
     }
 
     public function adicionarGrupo()
     {
-        // Adicionar novo grupo à lista (isto seria substituído por lógica de salvamento no banco)
-        $this->grupos[] = [
-            'id' => count($this->grupos) + 1,
-            'nome' => $this->nome,
-            'descricao' => 'Descrição do Novo Grupo'
-        ];
+        $this->validate([
+            'nome' => 'required|string|max:255',
+        ]);
 
-        // Limpar o campo de entrada
+        //dd($this);
+
+        // Criar novo grupo
+        $grupo = AdmGrupo::create([
+            'nome' => $this->nome,
+        ]);
+
+        // Atualizar lista de grupos
+        $this->grupos[] = $grupo->toArray();
         $this->nome = '';
     }
 

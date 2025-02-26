@@ -1,10 +1,9 @@
-@livewire('adm-grupos')
 <div>
     <h1>Administração de Grupos</h1>
 
     <!-- Formulário para adicionar novo grupo -->
     <form wire:submit.prevent="adicionarGrupo">
-        <input type="text" wire:model="nome" placeholder="Nome do grupo">
+        <input type="text" wire:model="nome" placeholder="Nome do grupo" required>
         <button type="submit">Adicionar Grupo</button>
     </form>
 
@@ -13,7 +12,6 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +19,6 @@
                 <tr>
                     <td>{{ $grupo['id'] }}</td>
                     <td>{{ $grupo['nome'] }}</td>
-                    <td>{{ $grupo['descricao'] }}</td>
                 </tr>
             @endforeach
         </tbody>
