@@ -14,7 +14,7 @@ class AdmBandeiras extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->bandeiras = AdmBandeira::all();
+        $this->bandeiras = AdmBandeira::all()->toArray();
     }
 
     public function adicionarBandeira()

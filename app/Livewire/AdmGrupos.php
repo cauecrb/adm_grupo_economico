@@ -13,7 +13,7 @@ class AdmGrupos extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->grupos = AdmGrupo::all();
+        $this->grupos = AdmGrupo::all()->toArray();
         //dd($this)->grupos;
     }
 
@@ -32,7 +32,7 @@ class AdmGrupos extends Component
 
         // Atualizar lista de grupos
         $this->grupos[] = $grupo->toArray();
-        //$this->nome = '';
+        $this->nome = '';
     }
     
     public function render()

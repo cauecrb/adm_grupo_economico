@@ -18,7 +18,7 @@ class AdmUnidades extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->unidades = AdmUnidade::all();
+        $this->unidades = AdmUnidade::all()->toArray();
     }
 
     public function adicionarUnidade()

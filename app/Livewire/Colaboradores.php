@@ -17,7 +17,7 @@ class Colaboradores extends Component
     public function mount()
     {
         // pegar os dados do banco
-        $this->colaboradores = Colaborador::all();
+        $this->colaboradores = Colaborador::all()->toArray();
     }
 
     public function adicionarColaborador()
