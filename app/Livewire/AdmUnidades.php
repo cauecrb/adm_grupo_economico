@@ -21,12 +21,19 @@ class AdmUnidades extends Component
         $this->unidades = AdmUnidade::all()->toArray();
     }
 
+    public function render()
+    {
+        // pegar os dados do banco
+        $unidades = AdmUnidade::all();
+        return view('livewire.adm-unidades', compact('unidades'));
+    }
+
     public function adicionarUnidade()
     {
         $this->validate([
             'nome_fantasia' => 'required|string|max:255',
             'razao_social' => 'required|string|max:255',
-            'cnpj' => 'required|string|max:11', // fazer a verificação
+            'cnpj' => 'required|unique:unidades,cnpj|max:18', // fazer a verificação
             'bandeira_id' => 'required|exists:bandeiras,id',
         ]);
 
@@ -45,8 +52,8 @@ class AdmUnidades extends Component
         $this->nome_fantasia = '';
     }
 
-    public function render()
-    {
-        return view('livewire.adm-unidades', ['unidades' => $this->unidades]);
-    }
+   // public function render()
+   // {
+   //     return view('livewire.adm-unidades', ['unidades' => $this->unidades]);
+    //}
 }

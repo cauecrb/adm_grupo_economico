@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unidades', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_fantasia', 100);
-            $table->string('razao_social', 100);
+            $table->string('name');
             $table->string('cnpj')->unique();
-            $table->unsignedBigInteger('bandeira_id');
             $table->timestamps();
-
-            $table->foreign('bandeira_id')->references('id')->on('bandeiras');
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('adm_unidades');
+        Schema::dropIfExists('organizations');
     }
 };
